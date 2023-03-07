@@ -25,8 +25,8 @@ function Header() {
         <div>
           <Link to={"/"}>
             <img
-              className="w-10 h-10 object-cover rounded-full"
-              src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              className="w-14 h-14 object-cover rounded-full"
+              src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3RvcmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
               alt=""
             />
           </Link>
