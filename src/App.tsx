@@ -9,6 +9,7 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CollectionsPage from "./pages/CollectionsPage";
 import Homepage from "./pages/Homepage";
+import LoginPage from "./pages/LoginPage";
 import ProductDetails from "./pages/ProductDetails";
 import SearchPage from "./pages/SearchPage";
 import SuccessPage from "./pages/SuccessPage";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/success" element={<SuccessPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Route>
     )
   );

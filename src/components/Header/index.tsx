@@ -55,7 +55,9 @@ function Header() {
 
           {/* right (search & profile & cart) */}
           <div className="flex gap-x-8">
-            <User className="h-5 w-5" />
+            <Link to="/login">
+              <User className="h-5 w-5" />
+            </Link>
             <SearchBar />
             <Cart />
           </div>
