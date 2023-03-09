@@ -1,7 +1,18 @@
+import Categories from "../components/Categories";
+import Featured from "../components/Features";
+import Hero from "../components/Hero";
+import SubHero from "../components/SubHero";
+
 function Homepage() {
   return (
-    <div className="p-5">
-      <div className="max-w-7xl mx-auto">Homepage</div>
+    <div>
+      <Hero />
+
+      <div className="max-w-7xl mx-auto">
+        <SubHero />
+        <Categories />
+        <Featured />
+      </div>
     </div>
   );
 }

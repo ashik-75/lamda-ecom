@@ -6,7 +6,7 @@ function RootLayout() {
   return (
     <>
       <Header />
-      <main className="min-h-[calc(100vh-144px)]">
+      <main className="min-h-[calc(100vh-60px)] py-28">
         <Outlet />
       </main>
       <Footer />
