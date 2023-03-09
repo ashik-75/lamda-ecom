@@ -154,7 +154,16 @@ function Cart() {
                         </div>
                       </div>
                     ) : (
-                      <div>Add items</div>
+                      <div className="p-5 flex flex-col items-center">
+                        <h1 className="font-medium">Your cart is empty</h1>
+                        <Link
+                          to={"/collections/all"}
+                          onClick={() => setIsOpen(false)}
+                          className="underline underline-offset-2"
+                        >
+                          Continue shipping
+                        </Link>
+                      </div>
                     )}
                   </div>
 

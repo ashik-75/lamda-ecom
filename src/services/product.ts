@@ -25,7 +25,11 @@ export async function getProduct(slug: string) {
 }
 
 export async function getCategoryProducts(slug: string) {
-  const query = `*[_type == "product" && category._ref in *[_type == "category" && slug.current == "${slug}"]._id]`;
+  const query =
+    slug === "all"
+      ? `*[_type == "product"]`
+      : `*[_type == "product" && category._ref in *[_type == "category" && slug.current == "${slug}"]._id]`;
+
   const data = await client.fetch(query);
 
   return data;
