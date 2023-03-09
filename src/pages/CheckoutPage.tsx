@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { Minus, Plus, Trash2 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import useCart, { ItemType } from "../hooks/useCart";
@@ -53,12 +53,8 @@ function Item({ _id, image, price, qty, title }: ItemType) {
 function CheckoutPage() {
   const navigate = useNavigate();
   const { cartItems, clearLocalStorage, totalPrice } = useCart();
+  const [email, setEmail] = useState("");
 
-  const info = {
-    email: "ashikex@gmail.com",
-    amount: Math.round((totalPrice + 12 + 120) * 100) / 100,
-    address: "10/11, san andress",
-  };
   const { isLoading, isError, error, mutate, isSuccess } = useMutation({
     mutationFn: addOrder,
   });
@@ -71,14 +67,32 @@ function CheckoutPage() {
     }
   }, [isSuccess]);
 
+  const handleCheckout = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const orderedProducts = cartItems
+      .map((item) => `${item.title}-Q: ${item.qty}-P: ${item.price}`)
+      .join(" X ");
+
+    const info = {
+      email,
+      amount: Math.round((totalPrice + 12 + 120) * 100) / 100,
+      address: orderedProducts,
+    };
+
+    mutate(info);
+  };
+
   return (
     <div className="px-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="max-w-7xl mx-auto ">
         {cartItems.length > 0 ? (
-          <>
+          <form
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            onSubmit={handleCheckout}
+          >
             {/* checkout form && payment */}
             <div>
-              <form className="space-y-5">
+              <div className="space-y-5">
                 {/* contact information */}
                 <div className="space-y-2">
                   <h1 className="text-lg font-medium">Contact Information</h1>
@@ -90,7 +104,10 @@ function CheckoutPage() {
                       Email Address
                     </label>
                     <input
-                      type="text"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                       className="outline-none rounded border w-full py-1 px-3"
                     />
                   </div>
@@ -264,7 +281,7 @@ function CheckoutPage() {
                     </div>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
 
             {/* order summary */}
@@ -301,15 +318,15 @@ function CheckoutPage() {
                   </div>
 
                   <button
-                    onClick={() => mutate(info)}
+                    type="submit"
                     className="py-3 bg-black  flex items-center justify-center w-full text-white font-bold "
                   >
-                    {isLoading ? "processing" : "Confirm Order"}
+                    {isLoading ? "processing ...." : "Confirm Order"}
                   </button>
                 </div>
               </div>
             </div>
-          </>
+          </form>
         ) : (
           <div className="">
             <h1 className="font-medium">No Items is available for checkout</h1>
