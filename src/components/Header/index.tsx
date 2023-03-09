@@ -18,7 +18,7 @@ const links = [
 
 function Header() {
   return (
-    <header className="p-5 bg-white fixed inset-x-0 z-40 w-full">
+    <header className="p-5 bg-white fixed inset-x-0 z-40 w-full border-b">
       <div className=" max-w-7xl mx-auto ">
         <div className="flex items-center justify-between">
           {/* left porttion (logo && menu) */}
