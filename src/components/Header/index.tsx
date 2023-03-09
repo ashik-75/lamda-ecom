@@ -14,11 +14,6 @@ const links = [
     url: "/checkout",
     name: "Checkout",
   },
-  {
-    id: 2,
-    url: "/payment",
-    name: "Payment",
-  },
 ];
 
 function Header() {

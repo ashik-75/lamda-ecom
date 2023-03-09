@@ -1,6 +1,5 @@
 import { Minus, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
-import ProductDetailSkeleton from "../components/Skeleton/ProductDetailSkeleton";
 import useCart, { ItemType } from "../hooks/useCart";
 import { formatPrice } from "../utils/formatPrice";
 
@@ -43,19 +42,18 @@ function CartPage() {
   return (
     <div>
       <div className="max-w-6xl mx-auto space-y-10">
-        {/* header */}
-        <div className="flex flex-col items-center">
-          <h1 className="font-extrabold text-3xl ">Cart</h1>
-          <Link
-            to={"/collections/all"}
-            className="underline underline-offset-4"
-          >
-            Continue Shopping
-          </Link>
-        </div>
-
         {cartItems.length > 0 ? (
           <>
+            {/* header */}
+            <div className="flex flex-col items-center">
+              <h1 className="font-extrabold text-3xl ">Cart</h1>
+              <Link
+                to={"/collections/all"}
+                className="underline underline-offset-4"
+              >
+                Continue Shopping
+              </Link>
+            </div>
             {/* cart products */}
             <div className="space-y-10">
               {cartItems.map((item) => (
@@ -98,7 +96,10 @@ function CartPage() {
           </>
         ) : (
           <div>
-            <ProductDetailSkeleton />
+            <h1 className="font-medium">Cart is emtry</h1>
+            <Link className="underline underline-offset-2" to={"/"}>
+              Continue shipping
+            </Link>
           </div>
         )}
       </div>

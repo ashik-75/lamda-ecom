@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useCart, { ItemType } from "../hooks/useCart";
 import { addOrder } from "../services/order";
 import { formatPrice } from "../utils/formatPrice";
@@ -311,7 +311,12 @@ function CheckoutPage() {
             </div>
           </>
         ) : (
-          <div className="">no cart items</div>
+          <div className="">
+            <h1 className="font-medium">No Items is available for checkout</h1>
+            <Link to={"/"} className="underline underline-offset-2">
+              Continue Shipping
+            </Link>
+          </div>
         )}
       </div>
     </div>

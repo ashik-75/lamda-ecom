@@ -1,7 +1,7 @@
 import { client } from "../utils/client";
 
 export async function getProducts(page: number) {
-  const product_perPage = 2;
+  const product_perPage = 4;
   const query = `*[_type == "product"][${(page - 1) * product_perPage}...${
     page * product_perPage
   }]`;
