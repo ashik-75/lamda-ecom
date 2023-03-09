@@ -10,6 +10,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CollectionsPage from "./pages/CollectionsPage";
 import Homepage from "./pages/Homepage";
 import LoginPage from "./pages/LoginPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import ProductDetails from "./pages/ProductDetails";
 import SearchPage from "./pages/SearchPage";
 import SuccessPage from "./pages/SuccessPage";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );
