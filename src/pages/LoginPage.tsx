@@ -13,10 +13,12 @@ function LoginPage() {
             <div className="bg-gray-200 h-5 rounded-xl"></div>
           </div>
         ) : !isAuthenticated ? (
-          <div className="space-y-4">
-            <h1>Login page</h1>
+          <div className="space-y-4 p-5 max-w-md border border-gray-200 rounded">
+            <h1 className="font-medium">
+              You Are not logged in yet, want to Login?
+            </h1>
             <button
-              className="px-4 py-1 rounded border"
+              className="px-4 py-1 rounded border font-medium"
               onClick={() => loginWithRedirect()}
             >
               Log In
